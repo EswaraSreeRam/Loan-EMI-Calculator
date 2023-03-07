@@ -1,0 +1,83 @@
+﻿
+<style>
+   
+body {
+    font: normal 18px 'Open Sans', sans-serif;
+    background: #fafafa;
+    color: #333;
+}
+a:hover{
+    text-decoration-color: black;
+}
+main {
+    min-height: 100vh;
+}
+
+header {
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+    h3{
+        font: normal 2em 'Playfair Display SC', serif;
+        text-align:center;
+        
+    }
+
+    .nav2 {
+        max-width: 800px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+        .nav2 a {
+            flex-grow: 1;
+            text-align: center;
+            padding: 1em;
+            position: relative;
+        }
+        .nav2 a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right:0;
+            height: 2px;
+            transform: scaleX(0);
+            background: #333;
+            transition: 0.7s transform cubic-bezier(0.06, 0.9, 0.28, 1);
+
+        }
+
+        .nav2 a:hover::after{
+            transform: scaleX(1)
+            
+        }
+        .nav2 a:hover{
+            text-decoration: none;
+            color: rgb(99, 90, 90);
+        }
+
+
+
+</style>
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+</nav>
+<nav class="nav2" *ngIf="user">
+    <a [routerLink]="['homeloan']">Home Loan</a>
+    <a [routerLink]="['carloan']">Car Loan</a>
+    <a [routerLink]="['personalloan']">Personal Loan</a>
+</nav>
+<!-- main app container -->
+<div class="app-container" [ngClass]="{ 'bg-light': user }">
+    
+    <alert></alert>
+    <router-outlet></router-outlet>
+</div>
+
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Interest Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="card">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Personal Loan Calculator</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+               
+                    <div class="form-group">
+                        <label class="form-group">Principal Amount </label>
+                        <input class="form-control" placeholder="Enter your Principal Amount" type="text" #Principal>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group">Tenure(In months)</label>
+                        <input class="form-control" placeholder="Enter your Tenure Period" type="text" #Tenure>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group">Rate of interest(%)</label>
+                        <input class="form-control" type="text" placeholder="20.00%" readonly value="20" #Roi>
+                    </div>
+                    <button type="button" class="btn btn-success" (click)="PersonalLoan(Principal.value,Tenure.value,Roi.value)">Calculate</button>
+             
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card2">
+    <div class="container">
+    <h4> <span class="dot"></span>Principal Amount : Rs. {{P}}</h4>
+<h4> <span class="dot"></span>Total Intrest Payable :Rs. {{result}}</h4>
+<h4> <span class="dot"></span>Total Amount Payable : Rs. {{Total}}</h4>
+</div>
+</div>
+</body>
+
+</html>
